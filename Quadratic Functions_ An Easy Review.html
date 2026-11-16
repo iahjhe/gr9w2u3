@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Quadratic Functions: An Easy Review</title>
+<style>
+:root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);
+--bg:#f6f8fc;--surface:#fff;--card:#eaf1fb;--text:#1b2a4a;--muted:#5a6a85;--navy:#1b2a4a;--blue:#2f5f9e;--green:#2e8b6a;--gold:#e0a31f;--red:#c0483f;--line:#d5dded;--hero-text:#fff}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0f1626;--surface:#172138;--card:#1d2b49;--text:#e8eefb;--muted:#9fb0cf;--navy:#0b1220;--blue:#6fa3e6;--green:#4cc29a;--gold:#f0b93a;--red:#ee7b72;--line:#2b3a5c}}
+:root[data-theme="dark"]{--bg:#0f1626;--surface:#172138;--card:#1d2b49;--text:#e8eefb;--muted:#9fb0cf;--navy:#0b1220;--blue:#6fa3e6;--green:#4cc29a;--gold:#f0b93a;--red:#ee7b72;--line:#2b3a5c}
+html{scroll-behavior:smooth;scroll-padding-top:calc(env(safe-area-inset-top,0px) + 64px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);font:17px/1.6 "Lato","Segoe UI",system-ui,sans-serif}
+nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--surface);border-bottom:1px solid var(--line);display:flex;gap:4px;align-items:center;padding:8px 16px;overflow-x:auto}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--surface);z-index:21}
+nav b{margin-right:12px;white-space:nowrap}
+nav a{color:var(--muted);text-decoration:none;padding:6px 12px;border-radius:99px;font-size:14px;white-space:nowrap}
+nav a:hover,nav a.on{background:var(--card);color:var(--text)}
+#bar{position:fixed;left:0;top:env(safe-area-inset-top,0px);height:3px;background:var(--gold);width:0;z-index:30}
+header{background:var(--navy);color:var(--hero-text);text-align:center;padding:90px 20px 80px}
+header h1{margin:0;font-size:clamp(32px,6vw,56px);letter-spacing:.06em}
+header .sub{color:#f0b93a;font-size:22px;margin:10px 0 18px;font-weight:700}
+header p{margin:4px 0;opacity:.85}
+.pill{display:inline-block;margin:6px 4px;padding:4px 14px;border:1px solid rgba(255,255,255,.3);border-radius:99px;font-size:14px}
+main{max-width:980px;margin:0 auto;padding:0 20px 60px}
+section{padding:56px 0 8px}
+h2{font-size:clamp(24px,4vw,34px);margin:0 0 6px}
+h2 small{display:block;color:var(--blue);font-size:14px;letter-spacing:.12em;text-transform:uppercase;margin-bottom:4px}
+h3{margin:0 0 6px;font-size:18px}
+.lead{color:var(--muted);margin:0 0 22px}
+.grid{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));margin:18px 0}
+.card{background:var(--card);border-radius:12px;padding:16px 18px;border-left:5px solid var(--blue);box-shadow:0 1px 3px rgba(0,0,0,.08)}
+.card.g{border-color:var(--green)}.card.y{border-color:var(--gold)}.card.r{border-color:var(--red)}
+.card p{margin:4px 0}
+.eq{font:700 22px/1.4 "Cambria Math","STIX Two Math",Georgia,serif;color:var(--blue);margin:6px 0;overflow-wrap:anywhere}
+.mono{font-family:"Cambria Math",Georgia,serif;font-size:19px}
+.big{background:var(--navy);color:#fff;border-radius:12px;padding:16px 20px;margin:20px 0;text-align:center;font-weight:700}
+.note{background:var(--surface);border:1px dashed var(--line);border-radius:10px;padding:12px 16px;margin:18px 0;color:var(--muted)}
+.final{background:var(--card);border-left:5px solid var(--green);border-radius:10px;padding:10px 16px;margin:12px 0;font-weight:700}
+.steps{counter-reset:s;display:grid;gap:12px;margin:16px 0}
+.step{background:var(--card);border-radius:12px;padding:12px 18px 12px 58px;position:relative;border-left:5px solid var(--blue)}
+.step::before{counter-increment:s;content:counter(s);position:absolute;left:14px;top:12px;width:30px;height:30px;border-radius:50%;background:var(--blue);color:var(--bg);display:grid;place-items:center;font-weight:700}
+.step:nth-child(2){border-color:var(--green)}.step:nth-child(2)::before{background:var(--green)}
+.step:nth-child(3){border-color:var(--gold)}.step:nth-child(3)::before{background:var(--gold)}
+.step p{margin:3px 0}
+.tablewrap{overflow-x:auto;margin:14px 0}
+table{border-collapse:collapse;width:100%;min-width:480px;text-align:center;font-family:"Cambria Math",Georgia,serif;font-size:20px}
+th,td{border:1px solid var(--line);padding:8px}
+th{background:var(--navy);color:#fff}
+td.pt{cursor:pointer;background:var(--surface)}
+td.pt:hover,td.pt.on{background:var(--gold);color:#1b2a4a}
+.graphbox{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:12px;margin:16px 0}
+svg{width:100%;height:auto;display:block}
+.chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:12px}
+.chip{background:var(--card);border-radius:10px;padding:8px 14px}
+.chip b{color:var(--blue)}
+.tabs{display:flex;gap:8px;margin:0 0 14px}
+.tabs button,.reveal{font:inherit;cursor:pointer;border:0;border-radius:99px;padding:8px 18px;background:var(--card);color:var(--text)}
+.tabs button.on,.reveal{background:var(--blue);color:var(--bg);font-weight:700}
+.reveal{margin-top:10px}
+.ans{display:none;margin-top:10px;padding:10px 14px;border-radius:8px;background:var(--surface);border-left:5px solid var(--green)}
+.ans.show{display:block}
+footer{text-align:center;background:var(--navy);color:#fff;padding:50px 20px}
+footer h2{color:#f0b93a;letter-spacing:.08em}
+footer ul{list-style:none;padding:0;max-width:640px;margin:20px auto;text-align:left}
+footer li{margin:10px 0}
+footer p{font-weight:700;font-size:20px}
+</style>
+</head>
+<body>
+<div id="bar"></div>
+<nav id="nav"><b>Quadratics</b></nav>
+
+<header>
+<h1>QUADRATIC FUNCTIONS</h1>
+<div class="sub">An easy step-by-step review</div>
+<p><span class="pill">Changing forms</span><span class="pill">Making an x-y table</span><span class="pill">Graphing a parabola</span></p>
+<p style="font-size:14px;margin-top:22px">Based on the provided Day 5 and Day 6 lesson pages</p>
+</header>
+
+<main>
+
+<section id="learn" data-nav="Goals">
+<h2><small>Overview</small>What will we learn?</h2>
+<div class="grid">
+<div class="card"><h3>1. Change the form</h3><p>Rewrite a quadratic equation in another form.</p></div>
+<div class="card g"><h3>2. Understand the parts</h3><p>Identify a, h, k, and the perfect-square pattern.</p></div>
+<div class="card y"><h3>3. Draw the graph</h3><p>Make a table, plot points, and connect them smoothly.</p></div>
+</div>
+<div class="big">Big idea: A quadratic function makes a curved graph called a PARABOLA.</div>
+</section>
+
+<section id="forms" data-nav="Two forms">
+<h2><small>Part 1</small>A quadratic function has two common forms</h2>
+<div class="grid">
+<div class="card"><h3>Vertex form <span style="font-weight:400;color:var(--muted)">(also called standard form in your module)</span></h3><div class="eq">y = a(x − h)² + k</div><p>It helps us identify the vertex: (h, k).</p></div>
+<div class="card g"><h3>General form</h3><div class="eq">y = ax² + bx + c</div><p>It shows the x² term, x term, and constant.</p></div>
+</div>
+<div class="note">Remember: a, b, c, h, and k are numbers. The value of a cannot be zero.</div>
+
+<h2 style="margin-top:36px;font-size:26px">What does vertex form tell us?</h2>
+<div class="eq" style="text-align:center">y = a(x − h)² + k</div>
+<div class="grid">
+<div class="card"><h3>The vertex is (h, k)</h3><p>h tells the x-coordinate.</p><p>k tells the y-coordinate.</p><p>The vertex is the turning point of the parabola.</p></div>
+<div class="card g"><h3>If a is positive (+)</h3><p>The parabola opens UP like a smile.</p></div>
+<div class="card r"><h3>If a is negative (−)</h3><p>The parabola opens DOWN like an upside-down smile.</p></div>
+</div>
+</section>
+
+<section id="general-to-vertex" data-nav="General → Vertex">
+<h2><small>Part 2</small>General form → Vertex form</h2>
+<p class="lead">Example: <span class="mono">f(x) = x² − 10x + 25</span></p>
+<div class="steps">
+<div class="step"><h3>Look for a perfect square</h3><p class="mono">x² − 10x + 25</p><p>Find two equal factors of x² and 25: <span class="mono">(x − 5)(x − 5)</span></p></div>
+<div class="step"><h3>Write it as a square</h3><p class="mono">(x − 5)(x − 5) = (x − 5)²</p></div>
+</div>
+<div class="final">Answer: f(x) = (x − 5)²</div>
+<p class="lead">Why? (x − 5)² means (x − 5) multiplied by itself.</p>
+
+<h3 style="margin-top:30px">How do we recognize a perfect square?</h3>
+<div class="grid">
+<div class="card"><h3>Pattern 1: plus</h3><div class="eq">x² + 2ax + a² = (x + a)²</div><p>Example: x² + 6x + 9 = (x + 3)²</p></div>
+<div class="card g"><h3>Pattern 2: minus</h3><div class="eq">x² − 2ax + a² = (x − a)²</div><p>Example: x² − 10x + 25 = (x − 5)²</p></div>
+</div>
+<div class="note"><b>Quick check:</b> the first and last terms must be squares, and the middle term must match the pattern.</div>
+
+<h3 style="margin-top:30px">Example with a number in front</h3>
+<p class="lead mono">f(x) = 2x² + 24x + 72</p>
+<div class="steps">
+<div class="step"><h3>Take out the common factor 2.</h3><p class="mono">2(x² + 12x + 36)</p></div>
+<div class="step"><h3>Factor the trinomial inside the parentheses.</h3><p class="mono">x² + 12x + 36 = (x + 6)(x + 6)</p></div>
+<div class="step"><h3>Write the repeated factors as a square.</h3></div>
+</div>
+<div class="final">Final answer: f(x) = 2(x + 6)²</div>
+</section>
+
+<section id="vertex-to-general" data-nav="Vertex → General">
+<h2><small>Part 3</small>Vertex form → General form</h2>
+<p class="lead">Example: <span class="mono">y = 3(x − 2)² + 4</span></p>
+<div class="steps">
+<div class="step"><h3>Expand the square</h3><p class="mono">(x − 2)² = (x − 2)(x − 2) = x² − 4x + 4</p></div>
+<div class="step"><h3>Multiply everything by 3</h3><p class="mono">y = 3(x² − 4x + 4) + 4<br>y = 3x² − 12x + 12 + 4</p></div>
+<div class="step"><h3>Combine the constants</h3><p class="mono">12 + 4 = 16</p></div>
+</div>
+<div class="final">Final answer: y = 3x² − 12x + 16</div>
+
+<h3 style="margin-top:30px">Another example: (x + 3)² − 5</h3>
+<div class="grid">
+<div class="card"><p class="mono">f(x) = (x + 3)² − 5</p><p>Expand the square:</p><p class="mono">(x + 3)² = x² + 6x + 9</p></div>
+<div class="card g"><p>Then subtract 5:</p><p class="mono">f(x) = x² + 6x + 9 − 5<br>f(x) = x² + 6x + 4</p></div>
+</div>
+<div class="final">Final answer: f(x) = x² + 6x + 4</div>
+</section>
+
+<section id="exercises" data-nav="Exercises">
+<h2><small>Practice together</small>Let’s solve Exercise 5</h2>
+<div class="tabs"><button class="on" data-t="a">Exercise 5a</button><button data-t="b">Exercise 5b</button></div>
+<div id="t-a">
+<div class="grid">
+<div class="card"><h3>A. f(x) = x² − 14x + 49</h3><p>49 = 7² and −14x = −2(7)x</p><p class="mono">x² − 14x + 49 = (x − 7)²</p><p><b>Answer: f(x) = (x − 7)²</b></p></div>
+<div class="card g"><h3>B. f(x) = x² + 12x + 36</h3><p>36 = 6² and 12x = 2(6)x</p><p class="mono">x² + 12x + 36 = (x + 6)²</p><p><b>Answer: f(x) = (x + 6)²</b></p></div>
+</div>
+<div class="note">Both are perfect-square trinomials: the first and last terms are square numbers.</div>
+</div>
+<div id="t-b" hidden>
+<div class="grid">
+<div class="card"><h3>A. f(x) = 2(x + 4)²</h3><p>Expand: <span class="mono">(x + 4)² = x² + 8x + 16</span></p><p>Multiply each term by 2:</p><p><b>f(x) = 2x² + 16x + 32</b></p></div>
+<div class="card g"><h3>B. f(x) = (x + 2)² − 5</h3><p>Expand: <span class="mono">(x + 2)² = x² + 4x + 4</span></p><p>Subtract 5: <span class="mono">x² + 4x + 4 − 5</span></p><p><b>Answer: f(x) = x² + 4x − 1</b></p></div>
+</div>
+<div class="note">Tip: Expand the parentheses first. Then multiply or combine the numbers outside.</div>
+</div>
+</section>
+
+<section id="graphing" data-nav="Graphing">
+<h2><small>Part 4</small>How do we graph a quadratic function?</h2>
+<p class="lead">Example from your lesson: <span class="mono">f(x) = x² − 6x + 7</span></p>
+<div class="steps">
+<div class="step"><h3>Choose several x-values.</h3><p>Use values around the middle of the graph.</p></div>
+<div class="step"><h3>Find y for each x.</h3><p>Substitute each x-value into the equation.</p></div>
+<div class="step"><h3>Plot and connect.</h3><p>Plot each (x, y) point and connect them with a smooth curve.</p></div>
+</div>
+<div class="note">A quadratic graph is a parabola. It is curved, not a set of straight line segments.</div>
+
+<h3 style="margin-top:30px">Make the x-y table <span style="font-weight:400;color:var(--muted)">(tap a column to see its point)</span></h3>
+<p class="mono">y = x² − 6x + 7</p>
+<div class="tablewrap"><table id="tbl"></table></div>
+<div class="grid">
+<div class="card"><p class="mono">When x = 2: y = 2² − 6(2) + 7<br>= 4 − 12 + 7 = −1</p></div>
+<div class="card g"><p class="mono">When x = 3: y = 3² − 6(3) + 7<br>= 9 − 18 + 7 = −2</p></div>
+</div>
+<p class="lead">Each column gives one point: (0, 7), (1, 2), (2, −1), and so on.</p>
+
+<h3>Plot the points and connect them</h3>
+<div class="graphbox"><svg id="graph" viewBox="0 0 640 420" role="img" aria-label="Graph of y = x² − 6x + 7, a parabola with vertex (3, −2)"></svg></div>
+<div class="grid">
+<div class="card"><h3>Plot the ordered pairs</h3><p>For example, (3, −2) means x = 3 and y = −2.</p></div>
+<div class="card g"><h3>Connect smoothly</h3><p>Draw one continuous curved line through the points.</p></div>
+<div class="card r"><h3>Do not join with corners</h3><p>A parabola has a smooth U-shape.</p></div>
+</div>
+
+<h3 style="margin-top:30px">Understand the graph</h3>
+<div class="grid">
+<div class="card"><h3>Vertex: (3, −2)</h3><p>The lowest point of this U-shaped graph.</p></div>
+<div class="card g"><h3>Axis of symmetry: x = 3</h3><p>An imaginary vertical line that splits the graph into two matching halves.</p></div>
+<div class="card y"><h3>Opens upward</h3><p>The curve goes down to the vertex, then rises.</p></div>
+<div class="card r"><h3>Minimum value: −2</h3><p>The smallest y-value is −2.</p></div>
+</div>
+<div class="note"><b>Domain:</b> all real x-values. &nbsp; <b>Range:</b> y ≥ −2.</div>
+
+<h3 style="margin-top:30px">A useful shortcut: find the vertex first</h3>
+<div class="eq">y = x² − 6x + 7 = (x − 3)² − 2</div>
+<div class="grid">
+<div class="card"><h3>Read the vertex</h3><p>(x − 3)² − 2 gives vertex (3, −2).</p></div>
+<div class="card g"><h3>Check the graph</h3><p>The lowest point on the graph is exactly (3, −2).</p></div>
+</div>
+<div class="big">Vertex form makes the turning point easy to see.</div>
+</section>
+
+<section id="mistakes" data-nav="Mistakes">
+<h2><small>Watch out</small>Common mistakes to avoid</h2>
+<div class="grid">
+<div class="card r"><h3>Mistake 1: Forgetting to square both terms</h3><p>(x + 3)² is x² + 6x + 9, not x² + 9.</p></div>
+<div class="card r"><h3>Mistake 2: Not multiplying every term</h3><p>3(x² − 4x + 4) = 3x² − 12x + 12.</p></div>
+<div class="card r"><h3>Mistake 3: Mixing up coordinates</h3><p>(3, −2): x comes first, y comes second.</p></div>
+<div class="card r"><h3>Mistake 4: Drawing straight segments</h3><p>Use a smooth curve to make the parabola.</p></div>
+</div>
+</section>
+
+<section id="practice" data-nav="Practice">
+<h2><small>Your turn</small>Quick practice</h2>
+<p class="lead">Try these on your own. Pause before checking the answers. Remember: show your steps, not only the final answer.</p>
+<div class="grid">
+<div class="card"><h3>A. Change to vertex form</h3><p class="mono">x² + 8x + 16 = ?</p><button class="reveal">Show answer</button><div class="ans mono">(x + 4)²</div></div>
+<div class="card g"><h3>B. Change to general form</h3><p class="mono">2(x − 3)² + 1 = ?</p><button class="reveal">Show answer</button><div class="ans mono">2x² − 12x + 19</div></div>
+<div class="card y"><h3>C. Identify the vertex</h3><p class="mono">y = (x + 4)² − 2</p><button class="reveal">Show answer</button><div class="ans mono">Vertex = (−4, −2)</div></div>
+<div class="card r"><h3>D. Find the y-value</h3><p>If y = x² − 6x + 7 and x = 4, what is y?</p><button class="reveal">Show answer</button><div class="ans mono">y = 4² − 6(4) + 7 = −1</div></div>
+</div>
+</section>
+</main>
+
+<footer id="remember">
+<h2>LET’S REMEMBER!</h2>
+<ul>
+<li>• Vertex form: <span class="mono">y = a(x − h)² + k</span></li>
+<li>• General form: <span class="mono">y = ax² + bx + c</span></li>
+<li>• To expand: multiply the binomial by itself.</li>
+<li>• To graph: make a table → plot points → draw a smooth curve.</li>
+<li>• A quadratic graph is called a PARABOLA.</li>
+</ul>
+<p>You can do it—one step at a time!</p>
+</footer>
+
+<script>
+// Nav built from sections
+const nav=document.getElementById('nav'),secs=[...document.querySelectorAll('section[data-nav]')];
+secs.forEach(s=>{const a=document.createElement('a');a.href='#'+s.id;a.textContent=s.dataset.nav;nav.appendChild(a)});
+const links=[...nav.querySelectorAll('a')];
+function onScroll(){
+  const h=document.documentElement,max=h.scrollHeight-h.clientHeight;
+  document.getElementById('bar').style.width=(max>0?h.scrollTop/max*100:0)+'%';
+  let cur=0;secs.forEach((s,i)=>{if(s.getBoundingClientRect().top<140)cur=i});
+  links.forEach((a,i)=>a.classList.toggle('on',i===cur));
+}
+addEventListener('scroll',onScroll,{passive:true});onScroll();
+
+// Exercise tabs
+document.querySelectorAll('.tabs button').forEach(b=>b.onclick=()=>{
+  document.querySelectorAll('.tabs button').forEach(x=>x.classList.toggle('on',x===b));
+  ['a','b'].forEach(k=>document.getElementById('t-'+k).hidden=k!==b.dataset.t);
+});
+
+// Reveal answers
+document.querySelectorAll('.reveal').forEach(b=>b.onclick=()=>{
+  const a=b.nextElementSibling,s=a.classList.toggle('show');b.textContent=s?'Hide answer':'Show answer';
+});
+
+// Table + graph
+const f=x=>x*x-6*x+7,xs=[0,1,2,3,4,5,6];
+const fmt=n=>String(n).replace('-','−');
+document.getElementById('tbl').innerHTML=
+  '<tr><th>x</th>'+xs.map(x=>`<td class="pt" data-x="${x}">${x}</td>`).join('')+'</tr>'+
+  '<tr><th>y</th>'+xs.map(x=>`<td class="pt" data-x="${x}">${fmt(f(x))}</td>`).join('')+'</tr>';
+
+const svg=document.getElementById('graph'),W=640,H=420,x0=-1,x1=7,y0=-3,y1=8;
+const X=x=>(x-x0)/(x1-x0)*W,Y=y=>H-(y-y0)/(y1-y0)*H,NS='http://www.w3.org/2000/svg';
+let g='';
+for(let x=x0;x<=x1;x++)g+=`<line x1="${X(x)}" y1="0" x2="${X(x)}" y2="${H}" stroke="var(--line)"/>`;
+for(let y=y0;y<=y1;y++)g+=`<line x1="0" y1="${Y(y)}" x2="${W}" y2="${Y(y)}" stroke="var(--line)"/>`;
+g+=`<line x1="0" y1="${Y(0)}" x2="${W}" y2="${Y(0)}" stroke="var(--muted)" stroke-width="2"/><line x1="${X(0)}" y1="0" x2="${X(0)}" y2="${H}" stroke="var(--muted)" stroke-width="2"/>`;
+g+=`<line x1="${X(3)}" y1="0" x2="${X(3)}" y2="${H}" stroke="var(--gold)" stroke-width="2" stroke-dasharray="6 5"/><text x="${X(3)+6}" y="18" fill="var(--gold)" font-size="14">x = 3</text>`;
+for(let x=1;x<=6;x++)g+=`<text x="${X(x)}" y="${Y(0)+16}" fill="var(--muted)" font-size="12" text-anchor="middle">${x}</text>`;
+for(let y=-2;y<=7;y++)if(y)g+=`<text x="${X(0)-6}" y="${Y(y)+4}" fill="var(--muted)" font-size="12" text-anchor="end">${fmt(y)}</text>`;
+let d='';for(let x=0;x<=6.001;x+=.05)d+=(d?'L':'M')+X(x).toFixed(1)+' '+Y(f(x)).toFixed(1);
+g+=`<path d="${d}" fill="none" stroke="var(--blue)" stroke-width="3.5" stroke-linecap="round"/>`;
+xs.forEach(x=>g+=`<circle class="dot" data-x="${x}" cx="${X(x)}" cy="${Y(f(x))}" r="${x===3?8:6}" fill="${x===3?'var(--red)':'var(--green)'}"/>`);
+g+=`<text id="lbl" x="${X(3)+14}" y="${Y(-2)+5}" fill="var(--text)" font-size="15" font-weight="700">Vertex (3, −2)</text>`;
+svg.innerHTML=g;
+function pick(x){
+  document.querySelectorAll('td.pt').forEach(t=>t.classList.toggle('on',+t.dataset.x===x));
+  document.querySelectorAll('.dot').forEach(c=>c.setAttribute('r',+c.dataset.x===x?10:(+c.dataset.x===3?8:6)));
+  const l=document.getElementById('lbl'),px=X(x),py=Y(f(x));
+  l.setAttribute('x',x>4?px-14:px+14);l.setAttribute('text-anchor',x>4?'end':'start');l.setAttribute('y',py+5);
+  l.textContent=(x===3?'Vertex ':'Point ')+`(${x}, ${fmt(f(x))})`;
+}
+document.querySelectorAll('td.pt').forEach(t=>t.onclick=()=>pick(+t.dataset.x));
+document.querySelectorAll('.dot').forEach(c=>c.onclick=()=>pick(+c.dataset.x));
+pick(3);
+</script>
+</body>
+</html>
